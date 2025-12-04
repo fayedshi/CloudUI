@@ -30,16 +30,17 @@ const handleLogin = async () => {
       username: username.value,
       passwd: passwd.value
     });
-    alert(response);
-    // 假设后端返回了一个token
-    if(response.data.principal){
-        const token = response.data.token;
-        // 存储token到localStorage或其他状态管理库
-        localStorage.setItem('token', token);
-        // 跳转到首页
-        router.push('/');
-    }else{
-        alert('登录失败，'+response.data.Message);
+    
+    
+    if (response.data.code == 200) {
+      // const token = ;
+      // 存储token到localStorage或其他状态管理库
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('username', response.data.username);
+      // 跳转到首页
+      router.push({ name: 'Home' });// component name or path
+    } else {
+      alert('login failed, ' + response.data.message);
     }
   } catch (error) {
     console.error('登录失败:', error);

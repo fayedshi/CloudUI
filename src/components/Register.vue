@@ -12,7 +12,7 @@
       </div>
       <button type="submit">注册</button>
     </form>
-    <label>status: {{ status }}</label> 
+    <label>status: {{ status }}</label>
   </div>
 </template>
 
@@ -20,32 +20,6 @@
 import axios from 'axios';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
-// export default {
-// data() {
-//   return {
-//     username: '',
-//     passwd: '',
-//     status: ''
-//   };
-// },
-// setup() {
-//   register() {
-//     axios.post('http://localhost:8977/api/user/register', {
-//       username: this.username,
-//       passwd: this.passwd
-//     })
-//     .then(response => {
-//       console.log(response.data);
-//       this.status=response.data.Message;
-//       // 注册成功后的处理逻辑
-//       router.push({path: '/login'});
-//     })
-//     .catch(error => {
-//       console.error(error);
-//       // 处理错误情况
-//     });
-//   }
-// }
 
 const username = ref('');
 const passwd = ref('');
@@ -58,8 +32,7 @@ const register = async () => {
       username: username.value,
       passwd: passwd.value
     });
-    alert(response);
-    // 假设后端返回了一个token
+
     if (response.data.Code == 200) {
       // 跳转到首页
       router.push('/login');
@@ -69,7 +42,7 @@ const register = async () => {
   } catch (error) {
     console.error('failure:', error);
     // 显示错误消息给用户
-    alert('failed');
+    alert('failed' + error);
   }
 };
 </script>
