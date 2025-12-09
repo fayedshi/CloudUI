@@ -3,15 +3,15 @@
     <!-- <h1>My Mini Site</h1> -->
 
     <div v-if="ind">
-      Welcome {{ userName }}
-      <li><router-link to="/dept">Department</router-link></li>
+      <p>Welcome <strong>{{ userName }} </strong></p>
+      <div><router-link to="/dept">Check department data</router-link></div>
       <button v-on:click="logout">log out</button>
     </div>
 
     <nav v-else>
       <ul>
-        <li><router-link to="/login">登录</router-link></li>
-        <li><router-link to="/register">注册</router-link></li>
+        <li><router-link to="/login">Sign in</router-link></li>
+        <li><router-link to="/register">sign up</router-link></li>
 
       </ul>
     </nav>

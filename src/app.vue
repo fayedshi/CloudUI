@@ -1,14 +1,15 @@
 <template>
   <h1>Cloud UI</h1>
+  <nav>
+    <RouterLink to="/">Home</RouterLink>
+  </nav>
   <p>
     <strong>You are in:</strong> {{ $route.fullPath }}
   </p>
   <main>
     <RouterView />
   </main>
-  <!-- <nav>
-    <RouterLink to="/">Home</RouterLink>
-  </nav> -->
+
 
   <!-- <myPhone ref="phoneRef"></myPhone> -->
   <!-- <button @click="showPhone"></button> -->

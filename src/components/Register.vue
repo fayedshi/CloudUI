@@ -12,7 +12,8 @@
       </div>
       <button type="submit">注册</button>
     </form>
-    <label>status: {{ status }}</label>
+    <label>{{ status }}</label>
+    <!-- <button v-on:click="changeStatus"></button> -->
   </div>
 </template>
 
@@ -33,11 +34,13 @@ const register = async () => {
       passwd: passwd.value
     });
 
+    status.value = response.data.Message;
     if (response.data.Code == 200) {
-      // 跳转到首页
-      router.push('/login');
-    } else {
-      status.value = response.data.Message;
+      // navigate to login page
+      status.value +=', Navigate to login page in 3 seconds...';
+      setTimeout(() => {
+        router.push('/login');  
+      }, 3000);
     }
   } catch (error) {
     console.error('failure:', error);
@@ -45,6 +48,14 @@ const register = async () => {
     alert('failed' + error);
   }
 };
+
+// function changeStatus(){
+//   setTimeout(() => {
+//         status.value +=', Navigate econds';
+//         // router.push('/login');  
+//       }, 2000);
+//   // status.value +='change now';
+// }
 </script>
 
 <style>
