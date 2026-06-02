@@ -1,5 +1,5 @@
 //import Vue from 'vue';
-import { createMemoryHistory, createRouter } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../components/Home.vue';
 import Login from '../components/Login.vue';
 import Register from '../components/Register.vue';
@@ -7,7 +7,7 @@ import Dept from '@/components/Dept.vue';
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'Home',
     component: Home
   }
@@ -30,7 +30,7 @@ const routes = [
 ];
 
 const myRouter = createRouter({
- history: createMemoryHistory(),
+ history: createWebHistory(),
  routes
 })
 

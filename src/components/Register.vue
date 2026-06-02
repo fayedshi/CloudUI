@@ -1,16 +1,16 @@
 <template>
   <div class="register-container">
-    <h1>注册</h1>
+    <h2>注册</h2>
     <form @submit.prevent="register">
-      <div>
-        <label for="username">用户名:</label>
-        <input type="text" id="username" v-model="username" required>
+      <div class="username">
+        <p>用户名:</p>
+        <input type="text"  v-model="username" required>
       </div>
-      <div>
-        <label for="passwd">密码:</label>
-        <input type="password" id="passwd" v-model="passwd" required>
+      <div class="password">
+        <p>密码:</p>
+        <input type="password"  v-model="password" required>
       </div>
-      <button type="submit">注册</button>
+      <button type="submit">提交</button>
     </form>
     <label>{{ status }}</label>
     <!-- <button v-on:click="changeStatus"></button> -->
@@ -23,7 +23,7 @@ import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 
 const username = ref('');
-const passwd = ref('');
+const password = ref('');
 const status = ref('');
 const router = useRouter();
 
@@ -31,15 +31,15 @@ const register = async () => {
   try {
     const response = await axios.post('http://localhost:8977/api/user/register', {
       username: username.value,
-      passwd: passwd.value
+      password: password.value
     });
 
     status.value = response.data.Message;
     if (response.data.Code == 200) {
       // navigate to login page
-      status.value +=', Navigate to login page in 3 seconds...';
+      status.value += ', Navigate to login page in 3 seconds...';
       setTimeout(() => {
-        router.push('/login');  
+        router.push('/login');
       }, 3000);
     }
   } catch (error) {
@@ -47,57 +47,14 @@ const register = async () => {
     // 显示错误消息给用户
     alert('failed' + error);
   }
-};
-
-// function changeStatus(){
-//   setTimeout(() => {
-//         status.value +=', Navigate econds';
-//         // router.push('/login');  
-//       }, 2000);
-//   // status.value +='change now';
-// }
+}
 </script>
 
 <style>
-/* 添加你的CSS样式 */
-.register-container {
-  max-width: 300px;
-  margin: 100px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-h2 {
-  text-align: center;
-}
-
-div {
-  margin-bottom: 15px;
-}
 
 label {
   display: block;
   margin-bottom: 5px;
 }
 
-input {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #42b983;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #3a9a6e;
-}
 </style>
