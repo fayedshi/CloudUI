@@ -48,7 +48,8 @@ const fetchDeptData = async () => {
 <style scoped>
 div:first-of-type {
     width: 70%;
-    margin-left: 5%;
+    /* margin-left: 5%; */
+    margin: 0 auto;
 }
 
 .dept-list {

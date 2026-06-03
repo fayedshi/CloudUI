@@ -22,7 +22,7 @@ h2 {
   right: 35%;
   left: 35%; */
   width: 30%;
-  margin-left: 20%;
+  margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
