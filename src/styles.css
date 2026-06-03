@@ -17,10 +17,12 @@ h2 {
 
 .login-container,
 .register-container {
-  position: absolute;
+  /* position: absolute;
   top: 25%;
   right: 35%;
-  left: 35%;
+  left: 35%; */
+  width: 30%;
+  margin-left: 20%;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;

@@ -1,8 +1,10 @@
 <template>
-    <h2>Departments</h2>
     <div>
+        <h2>Departments</h2>
+        <!-- <div class="cont"> -->
         <ul class="dept-list">
-            <li class="dept-item"><span>ID</span>
+            <li class="dept-item">
+                <span>ID</span>
                 <span>Dept Name</span>
                 <span>Manager</span>
             </li>
@@ -13,6 +15,7 @@
             </li>
         </ul>
     </div>
+    <!-- </div> -->
 </template>
 
 <script setup>
@@ -42,18 +45,23 @@ const fetchDeptData = async () => {
 };
 </script>
 
-<style>
+<style scoped>
+div:first-of-type {
+    width: 70%;
+    margin-left: 5%;
+}
+
 .dept-list {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 .dept-item {
     display: flex;
     justify-content: space-between;
-    padding: 8px 12px;
+    /* padding: 8px 12px; */
     border-bottom: 1px solid #eee;
+    margin-right: 30px;
 }
 
 .name {
