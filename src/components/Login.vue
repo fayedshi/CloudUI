@@ -41,9 +41,9 @@ const handleLogin = async () => {
       localStorage.setItem('username', response.data.username);
       // 跳转到首页
       // window.location.reload();
-      emit('updateIsLoggedIn',true)
+      emit('updateIsLoggedIn', true, username.value)
       router.push('/');// component name or path
-      
+
     } else {
       alert('login failed, ' + response.data.message);
     }
