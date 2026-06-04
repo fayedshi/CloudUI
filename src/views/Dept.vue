@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Departments</h2>
+        <!-- <h2>Departments</h2> -->
         <!-- <div class="cont"> -->
         <ul class="dept-list">
             <li class="dept-item">
@@ -8,6 +8,7 @@
                 <span>Dept Name</span>
                 <span>Manager</span>
             </li>
+            <hr>
             <li v-for="dept in deptData" :key="dept.id" class="dept-item">
                 <span class="name">{{ dept.id }} </span>
                 <span class="name">{{ dept.deptName }}</span>
@@ -47,8 +48,7 @@ const fetchDeptData = async () => {
 
 <style scoped>
 div:first-of-type {
-    width: 70%;
-    /* margin-left: 5%; */
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -62,7 +62,6 @@ div:first-of-type {
     justify-content: space-between;
     /* padding: 8px 12px; */
     border-bottom: 1px solid #eee;
-    margin-right: 30px;
 }
 
 .name {

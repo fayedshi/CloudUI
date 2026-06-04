@@ -5,16 +5,15 @@
       <span>
         Current path: {{ $route.fullPath }}
       </span>
-      <div>
-        <span v-if="isLoggedIn">Welcome
+      <div v-if="isLoggedIn">
+        <span>Welcome
           <span>{{ userName }} </span>
-          <button @click="logout">Log Out</button>
         </span>
-
+        <button @click="logout">Log Out</button>
       </div>
     </div>
 
-    <nav v-if="!isLoggedIn" class="mainNavBar">
+    <nav v-if="!isLoggedIn">
       <router-link to="/login">Sign In</router-link><span></span>
       <router-link to="/register">Sign Up</router-link>
     </nav>
@@ -77,11 +76,7 @@ let logout = () => {
 }
 
 .container .title {
-  /* text-align: right; */
-  /* font-size: 25px; */
-  /* color:rgb(163, 21, 21); */
   margin-top: 10px;
-
 }
 
 .container .title>div:nth-child(1) {
@@ -94,25 +89,28 @@ let logout = () => {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: fit-content;
-  vertical-align: bottom;
-  /* color: rgb(212, 212, 18); */
+
+  display: flex;
+  align-items: flex-end;
+  button{
+    height: 30px;
+  }
 }
 
 
 div span>span {
   font-weight: bold;
   font-style: italic;
-  color: rgb(223, 24, 30)
+  color: rgb(223, 24, 30);
+  margin-right: 10px;
 }
 
 .container nav {
   width: 75%;
   position: absolute;
   top: 10px;
-  /* right: 10px; */
-  /* bottom: 10px; */
-  left: 25%;
+  left: 24%;
+  right: 10px;
   display: flex;
   justify-content: flex-end;
 
@@ -123,12 +121,9 @@ div span>span {
 }
 
 .container .routerView {
-
+  margin-top: 20px;
   display: flex;
   justify-content: flex-start;
-  /* align-items: flex-start; */
-  /* margin-left: 25%; */
-  /* margin-le: 10%; */
 
 }
 
