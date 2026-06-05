@@ -120,7 +120,7 @@ div span>span {
   }
 }
 
-.container .routerView {
+main {
   margin-top: 20px;
   display: flex;
   justify-content: flex-start;
