@@ -1,5 +1,5 @@
 <template>
-  <Form :title="titleRef" :actionName="handleRegister" @updateUsername="update_username" @updatePassword="update_password"
+  <Form :title="titleRef" :actionName="handleRegister" @enter-username="recvUsername" @enter-password="recvPassword"
     :username="usernameRef" :password="passwordRef" :status="statusRef" />
 </template>
 
@@ -18,14 +18,14 @@ const passwordRef = ref('');
 const statusRef = ref('');
 const router = useRouter();
 
-const update_username = (val) => {
+const recvUsername = (val) => {
   // console.log('parent received ',val)
   usernameRef.value = val;
   // emit是单向的，不能回传
   // emit('recvUsername', val);
 }
 
-let update_password = (val) => {
+let recvPassword = (val) => {
   passwordRef.value = val;
 }
 

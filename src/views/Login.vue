@@ -1,5 +1,5 @@
 <template>
-  <Form :title="titleRef" :actionName="handleLogin" @updateUsername="update_username" @updatePassword="update_password"
+  <Form :title="titleRef" :actionName="handleLogin" @enter-username="recvUsername" @enter-password="recvPassword"
     :username="usernameRef" :password="passwordRef" :status="statusRef" />
 </template>
 
@@ -19,14 +19,14 @@ const router = useRouter();
 const emit = defineEmits(['updateIsLoggedIn'])
 const statusRef = ref();
 
-const update_username = (val) => {
+const recvUsername = (val) => {
   // console.log('parent received ',val)
   usernameRef.value = val;
   // emit是单向的，不能回传
   // emit('recvUsername', val);
 }
 
-let update_password = (val) => {
+let recvPassword = (val) => {
   passwordRef.value = val;
 }
 
