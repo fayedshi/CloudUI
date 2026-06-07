@@ -16,7 +16,7 @@ const usernameRef = ref('');
 const passwordRef = ref('');
 console.log(usernameRef.value)
 const router = useRouter();
-const emit = defineEmits(['updateIsLoggedIn'])
+const emit = defineEmits(['logged-in'])
 const statusRef = ref();
 
 const recvUsername = (val) => {
@@ -44,7 +44,7 @@ const handleLogin = async () => {
 
       // window.location.reload();
       // update login status instantly
-      emit('updateIsLoggedIn', true, usernameRef.value)
+      emit('logged-in', true, usernameRef.value)
       // 跳转到首页
       router.push('/');// by component name or path
 

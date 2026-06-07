@@ -18,12 +18,9 @@
       <router-link to="/register">Sign Up</router-link>
     </nav>
 
-
-    <main class="routerView">
-      <!-- <nav class="mainNavBar"> -->
-      <router-link v-if="isLoggedIn" to="/dept">Dept List</router-link>
-      <!-- </nav> -->
-      <RouterView @updateIsLoggedIn="updIsLoggedIn" />
+    <main>    
+      <router-link v-if="isLoggedIn" to="/dept">Departments</router-link>
+      <RouterView @logged-in="updIsLoggedIn" />
     </main>
   </div>
 </template>
@@ -92,11 +89,11 @@ let logout = () => {
 
   display: flex;
   align-items: flex-end;
-  button{
+
+  button {
     height: 30px;
   }
 }
-
 
 div span>span {
   font-weight: bold;
@@ -114,7 +111,6 @@ div span>span {
   display: flex;
   justify-content: flex-end;
 
-
   span {
     margin-right: 10px;
   }
@@ -124,11 +120,5 @@ main {
   margin-top: 20px;
   display: flex;
   justify-content: flex-start;
-
 }
-
-/* .routerView :last-child {
-  margin-left: 100px;
-  width: 80%;
-} */
 </style>
