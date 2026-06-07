@@ -1,11 +1,14 @@
 # cloudUI
 
 Front end of MySpringCloud application. The UI looks following
-![alt text](image.png)
+![alt text](/public/main.png)
 
-![alt text](image-1.png)
+![alt text](/public/signin.png)
 
-![alt text](image-2.png)
+![alt text](/public/loggedIn.png)
+
+![alt text](/public/dept.png)
+
 
 
 ## Project Setup
