@@ -1,7 +1,7 @@
 # cloudUI
 
 Front end of MySpringCloud application. The UI looks following
-![main page](https://jsd.onmicrosoft.cn/gh/fayedshi/CloudUI/public/dept.png)
+![main page](https://jsd.onmicrosoft.cn/gh/fayedshi/CloudUI/public/main.png)
 
 ![alt text](/public/signin.png) 
 
