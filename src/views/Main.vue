@@ -7,7 +7,7 @@
       </span>
       <div v-if="isLoggedIn">
         <span>Welcome
-          <span>{{ userName }} </span>
+          <span>{{ username }} </span>
         </span>
         <button @click="logout">Log Out</button>
       </div>
@@ -18,7 +18,7 @@
       <router-link to="/register">Sign Up</router-link>
     </nav>
 
-    <main>    
+    <main>
       <router-link v-if="isLoggedIn" to="/dept">Departments</router-link>
       <RouterView @logged-in="updIsLoggedIn" />
     </main>
@@ -26,31 +26,29 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+// import { onMounted } from 'vue';
 import { RouterView, useRouter } from 'vue-router';
+import { useUserStore } from '@/store/user';
+import { storeToRefs } from 'pinia';
 
-let isLoggedIn = ref(false);
-console.log(isLoggedIn.value)
 const router = useRouter();
-let userName = ref();
-console.log('in setup()')
+let userStore = useUserStore();
+const { username, isLoggedIn } = storeToRefs(userStore);
 
-onMounted(() => {
-  console.log('main onmounted isloggIn ', isLoggedIn.value);
-  userName.value = localStorage.getItem("username");
-  isLoggedIn.value = userName.value != null;
+// onMounted(() => {
+//   console.log('onmounted isloggIn ', isLoggedIn, 'userStore', userStore);
+// })
+
+userStore.$subscribe((mutate, state) => {
+  console.log('received change', mutate, state);
 })
-
-const updIsLoggedIn = (val1, val2) => {
-  isLoggedIn.value = val1;
-  userName.value = val2;
-}
 
 let logout = () => {
   console.log("logging out");
   // clear local storage
   localStorage.clear();
-  isLoggedIn.value = false;
+  userStore.setUsername('');
+  userStore.setToken('');
   router.push("/");
 }
 

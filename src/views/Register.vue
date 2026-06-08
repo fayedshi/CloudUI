@@ -21,8 +21,6 @@ const router = useRouter();
 const recvUsername = (val) => {
   // console.log('parent received ',val)
   usernameRef.value = val;
-  // emit是单向的，不能回传
-  // emit('recvUsername', val);
 }
 
 let recvPassword = (val) => {

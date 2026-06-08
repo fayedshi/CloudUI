@@ -1,18 +1,16 @@
 <template>
     <div>
-        <!-- <h2>Departments</h2> -->
-        <!-- <div class="cont"> -->
-        <ul class="dept-list">
-            <li class="dept-item">
+        <ul>
+            <li class="row">
                 <span>ID</span>
                 <span>Dept Name</span>
                 <span>Manager</span>
             </li>
             <hr>
             <li v-for="dept in deptData" :key="dept.id" class="dept-item">
-                <span class="name">{{ dept.id }} </span>
-                <span class="name">{{ dept.deptName }}</span>
-                <span class="name">{{ dept.deptMgr }}</span>
+                <span>{{ dept.id }} </span>
+                <span>{{ dept.deptName }}</span>
+                <span>{{ dept.deptMgr }}</span>
             </li>
         </ul>
     </div>
@@ -52,20 +50,14 @@ div:first-of-type {
     margin: 0 auto;
 }
 
-.dept-list {
-    list-style: none;
-    padding: 0;
+.row {
+    font-weight: bold;
 }
 
-.dept-item {
+.dept-item,
+.row {
     display: flex;
     justify-content: space-between;
-    /* padding: 8px 12px; */
     border-bottom: 1px solid #eee;
-}
-
-.name {
-    font-weight: bold;
-    color: #333;
 }
 </style>

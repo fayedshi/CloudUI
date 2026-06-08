@@ -9,6 +9,7 @@ import { ref } from 'vue';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
 import Form from '@/components/Form.vue';
+import { useUserStore } from '@/store/user'
 
 
 const titleRef = ref('登录');
@@ -26,6 +27,8 @@ const recvUsername = (val) => {
   // emit('recvUsername', val);
 }
 
+let userStore = useUserStore();
+
 let recvPassword = (val) => {
   passwordRef.value = val;
 }
@@ -41,6 +44,8 @@ const handleLogin = async () => {
       // 存储token到localStorage或其他状态管理库
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('username', response.data.username);
+      userStore.setToken(response.data.token)
+      userStore.setUsername(response.data.username);
 
       // window.location.reload();
       // update login status instantly

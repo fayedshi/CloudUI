@@ -20,12 +20,12 @@
 <script setup>
 import { defineEmits, toRef, watch } from 'vue';
 const x = defineProps(['title', 'actionName', 'username', 'password', 'status'])
-console.log('x',x)
+// console.log('x',x)
 const emitter = defineEmits(['enter-username', 'enter-password'])
 
 
 let sendUsername = (e) => {
-  console.log('event', e.target.value);
+  // console.log('event', e.target.value);
   emitter('enter-username', e.target.value);
 }
 
@@ -34,9 +34,9 @@ let sendPassword = (e) => {
 }
 
 // watch if username updated from parent component
-let watchedName = toRef(x,'username');
+let watchedName = toRef(x, 'username');
 watch(watchedName, (newVal, oldVal) => {
-  console.log('username changed ', oldVal, newVal);
+  // console.log('username changed ', oldVal, newVal);
 })
 </script>
 
